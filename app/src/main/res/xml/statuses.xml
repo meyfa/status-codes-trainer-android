@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<app-statuses>
+
+    <app-status-class
+        name="Informational"
+        digit="1">
+        <app-status
+            code="100"
+            message="Continue" />
+        <app-status
+            code="101"
+            message="Switching Protocols" />
+        <app-status
+            code="102"
+            message="Processing" />
+    </app-status-class>
+
+    <app-status-class
+        name="Success"
+        digit="2">
+        <app-status
+            code="200"
+            message="OK" />
+        <app-status
+            code="201"
+            message="Created" />
+        <app-status
+            code="202"
+            message="Accepted" />
+        <app-status
+            code="203"
+            message="Non-authoritative Information" />
+        <app-status
+            code="204"
+            message="No Content" />
+        <app-status
+            code="205"
+            message="Reset Content" />
+        <app-status
+            code="206"
+            message="Partial Content" />
+        <app-status
+            code="207"
+            message="Multi-Status" />
+        <app-status
+            code="208"
+            message="Already Reported" />
+        <app-status
+            code="226"
+            message="IM Used" />
+    </app-status-class>
+
+    <app-status-class
+        name="Redirection"
+        digit="3">
+        <app-status
+            code="300"
+            message="Multiple Choices" />
+        <app-status
+            code="301"
+            message="Moved Permanently" />
+        <app-status
+            code="302"
+            message="Found" />
+        <app-status
+            code="303"
+            message="See Other" />
+        <app-status
+            code="304"
+            message="Not Modified" />
+        <app-status
+            code="305"
+            message="Use Proxy" />
+        <app-status
+            code="307"
+            message="Temporary Redirect" />
+        <app-status
+            code="308"
+            message="Permanent Redirect" />
+    </app-status-class>
+
+    <app-status-class
+        name="Client Error"
+        digit="4">
+        <app-status
+            code="400"
+            message="Bad Request" />
+        <app-status
+            code="401"
+            message="Unauthorized" />
+        <app-status
+            code="402"
+            message="Payment Required" />
+        <app-status
+            code="403"
+            message="Forbidden" />
+        <app-status
+            code="404"
+            message="Not Found" />
+        <app-status
+            code="405"
+            message="Method Not Allowed" />
+        <app-status
+            code="406"
+            message="Not Acceptable" />
+        <app-status
+            code="407"
+            message="Proxy Authentication Required" />
+        <app-status
+            code="408"
+            message="Request Timeout" />
+        <app-status
+            code="409"
+            message="Conflict" />
+        <app-status
+            code="410"
+            message="Gone" />
+        <app-status
+            code="411"
+            message="Length Required" />
+        <app-status
+            code="412"
+            message="Precondition Failed" />
+        <app-status
+            code="413"
+            message="Payload Too Large" />
+        <app-status
+            code="414"
+            message="Request-URI Too Long" />
+        <app-status
+            code="415"
+            message="Unsupported Media Type" />
+        <app-status
+            code="416"
+            message="Requested Range Not Satisfiable" />
+        <app-status
+            code="417"
+            message="Expectation Failed" />
+        <app-status
+            code="418"
+            message="I'm a teapot" />
+        <app-status
+            code="421"
+            message="Misdirected Request" />
+        <app-status
+            code="422"
+            message="Unprocessable Entity" />
+        <app-status
+            code="423"
+            message="Locked" />
+        <app-status
+            code="424"
+            message="Failed Dependency" />
+        <app-status
+            code="426"
+            message="Upgrade Required" />
+        <app-status
+            code="428"
+            message="Precondition Required" />
+        <app-status
+            code="429"
+            message="Too Many Requests" />
+        <app-status
+            code="431"
+            message="Request Header Fields Too Large" />
+        <app-status
+            code="444"
+            message="Connection Closed Without Response" />
+        <app-status
+            code="451"
+            message="Unavailable For Legal Reasons" />
+        <app-status
+            code="499"
+            message="Client Closed Request" />
+    </app-status-class>
+
+    <app-status-class
+        name="Server Error"
+        digit="5">
+        <app-status
+            code="500"
+            message="Internal Server Error" />
+        <app-status
+            code="501"
+            message="Not Implemented" />
+        <app-status
+            code="502"
+            message="Bad Gateway" />
+        <app-status
+            code="503"
+            message="Service Unavailable" />
+        <app-status
+            code="504"
+            message="Gateway Timeout" />
+        <app-status
+            code="505"
+            message="HTTP Version Not Supported" />
+        <app-status
+            code="506"
+            message="Variant Also Negotiates" />
+        <app-status
+            code="507"
+            message="Insufficient Storage" />
+        <app-status
+            code="508"
+            message="Loop Detected" />
+        <app-status
+            code="510"
+            message="Not Extended" />
+        <app-status
+            code="511"
+            message="Network Authentication Required" />
+        <app-status
+            code="599"
+            message="Network Connect Timeout Error" />
+    </app-status-class>
+
+</app-statuses>
