@@ -33,26 +33,35 @@
 
         <Button
             android:id="@+id/btn_answer_0"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
+            android:background="@drawable/button_default"
             android:onClick="clickAnswerButton"
+            android:textAllCaps="false"
             tools:text="Not Found" />
 
         <Button
             android:id="@+id/btn_answer_1"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
+            android:background="@drawable/button_default"
             android:onClick="clickAnswerButton"
+            android:textAllCaps="false"
             tools:text="Bad Request" />
 
         <Button
             android:id="@+id/btn_answer_2"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
+            android:background="@drawable/button_default"
             android:onClick="clickAnswerButton"
+            android:textAllCaps="false"
             tools:text="I'm a teapot" />
     </LinearLayout>
 </LinearLayout>

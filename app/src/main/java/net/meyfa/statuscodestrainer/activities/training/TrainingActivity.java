@@ -87,9 +87,34 @@ public class TrainingActivity extends AppCompatActivity
 
     private void chooseAnswer(int index)
     {
-        // TODO handle correct/incorrect answer
+        int correctIndex = currentQuestion.getCorrectAnswerIndex();
+        if (correctIndex != index) {
+            Button view = findViewById(ANSWER_BUTTONS.get(index));
+            view.setBackgroundResource(R.drawable.button_incorrect);
+        }
+        Button correctView = findViewById(ANSWER_BUTTONS.get(correctIndex));
+        correctView.setBackgroundResource(R.drawable.button_correct);
 
-        showNextQuestion();
+        new Thread(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                }
+
+                runOnUiThread(new Runnable()
+                {
+                    @Override
+                    public void run()
+                    {
+                        showNextQuestion();
+                    }
+                });
+            }
+        }).start();
     }
 
     private void showNextQuestion()
@@ -110,6 +135,7 @@ public class TrainingActivity extends AppCompatActivity
         for (int i = 0; i < answers.size(); ++i) {
             Button btn = findViewById(ANSWER_BUTTONS.get(i));
             btn.setText(answers.get(i));
+            btn.setBackgroundResource(R.drawable.button_default);
         }
     }
 }
