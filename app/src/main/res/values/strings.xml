@@ -4,4 +4,5 @@
     <string name="main_btn_training">Start Training</string>
     <string name="main_btn_test">Start Test</string>
     <string name="reference_title">HTTP Status Reference</string>
+    <string name="reference_label_question">What is the meaning of this status code?</string>
 </resources>

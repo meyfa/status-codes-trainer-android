@@ -7,6 +7,7 @@ import android.view.View;
 
 import net.meyfa.statuscodestrainer.R;
 import net.meyfa.statuscodestrainer.activities.reference.ReferenceActivity;
+import net.meyfa.statuscodestrainer.activities.training.TrainingActivity;
 
 /**
  * The main activity.
@@ -38,7 +39,8 @@ public class MainActivity extends AppCompatActivity
      */
     public void clickTraining(View view)
     {
-
+        Intent launch = new Intent(this, TrainingActivity.class);
+        startActivity(launch);
     }
 
     /**

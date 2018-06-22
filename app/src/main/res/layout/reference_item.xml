@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -11,8 +12,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:padding="4dp"
-        android:text="404"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        tools:text="404" />
 
     <TextView
         android:id="@+id/label_message"
@@ -24,8 +25,11 @@
         android:layout_alignTop="@+id/label_code"
         android:layout_toEndOf="@+id/label_code"
         android:layout_toRightOf="@+id/label_code"
-        android:gravity="left|center_vertical"
+        android:gravity="center_vertical|start"
+        android:paddingEnd="8dp"
         android:paddingLeft="8dp"
-        android:text="Not Found"
-        android:textSize="16sp" />
+        android:paddingRight="8dp"
+        android:paddingStart="8dp"
+        android:textSize="16sp"
+        tools:text="Not Found" />
 </RelativeLayout>
