@@ -11,20 +11,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="clickReference"
-        android:text="Status Code Reference" />
+        android:text="@string/main_btn_reference" />
 
     <Button
         android:id="@+id/btn_training"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="clickTraining"
-        android:text="Start Training" />
+        android:text="@string/main_btn_training" />
 
     <Button
         android:id="@+id/btn_test"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="clickTest"
-        android:text="Start Test" />
+        android:text="@string/main_btn_test" />
 
 </LinearLayout>

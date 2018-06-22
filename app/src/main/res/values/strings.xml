@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">HTTP Status Codes Trainer</string>
+    <string name="main_btn_reference">Status Code Reference</string>
+    <string name="main_btn_training">Start Training</string>
+    <string name="main_btn_test">Start Test</string>
+    <string name="reference_title">HTTP Status Reference</string>
 </resources>

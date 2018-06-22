@@ -16,7 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.reference.ReferenceActivity"></activity>
+        <activity
+            android:name=".activities.reference.ReferenceActivity"
+            android:label="@string/reference_title">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.main.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
