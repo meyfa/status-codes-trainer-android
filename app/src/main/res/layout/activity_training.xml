@@ -1,67 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".activities.training.TrainingActivity">
-
-    <TextView
-        android:id="@+id/label_question"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:padding="16dp"
-        android:textSize="20sp"
-        android:text="@string/reference_label_question" />
-
-    <TextView
-        android:id="@+id/label_code"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:padding="16dp"
-        android:textSize="32sp"
-        tools:text="404" />
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        tools:context=".activities.training.TrainingActivity">
 
-        <Button
-            android:id="@+id/btn_answer_0"
-            style="?android:attr/borderlessButtonStyle"
+        <TextView
+            android:id="@+id/label_question"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/button_default"
-            android:onClick="clickAnswerButton"
-            android:textAllCaps="false"
-            tools:text="Not Found" />
+            android:gravity="center_horizontal"
+            android:padding="16dp"
+            android:text="@string/reference_label_question"
+            android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/btn_answer_1"
-            style="?android:attr/borderlessButtonStyle"
+        <TextView
+            android:id="@+id/label_code"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/button_default"
-            android:onClick="clickAnswerButton"
-            android:textAllCaps="false"
-            tools:text="Bad Request" />
+            android:gravity="center_horizontal"
+            android:padding="16dp"
+            android:textSize="32sp"
+            tools:text="404" />
 
-        <Button
-            android:id="@+id/btn_answer_2"
-            style="?android:attr/borderlessButtonStyle"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/button_default"
-            android:onClick="clickAnswerButton"
-            android:textAllCaps="false"
-            tools:text="I'm a teapot" />
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <Button
+                android:id="@+id/btn_answer_0"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/button_default"
+                android:onClick="clickAnswerButton"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                tools:background="@drawable/button_correct"
+                tools:text="Not Found" />
+
+            <Button
+                android:id="@+id/btn_answer_1"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/button_default"
+                android:onClick="clickAnswerButton"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                tools:background="@drawable/button_incorrect"
+                tools:text="Bad Request" />
+
+            <Button
+                android:id="@+id/btn_answer_2"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/button_default"
+                android:onClick="clickAnswerButton"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                tools:text="I'm a teapot" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/label_correct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Correct!"
+            android:textColor="@color/colorCorrect"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/label_incorrect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Incorrect!"
+            android:textColor="@color/colorIncorrect"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
     </LinearLayout>
-</LinearLayout>
+</ScrollView>

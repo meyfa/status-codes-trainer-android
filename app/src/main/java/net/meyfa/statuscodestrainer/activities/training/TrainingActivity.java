@@ -87,21 +87,28 @@ public class TrainingActivity extends AppCompatActivity
 
     private void chooseAnswer(int index)
     {
-        int correctIndex = currentQuestion.getCorrectAnswerIndex();
-        if (correctIndex != index) {
+        final int correctIndex = currentQuestion.getCorrectAnswerIndex();
+        final boolean isCorrect = index == correctIndex;
+
+        // update button styles
+        if (!isCorrect) {
             Button view = findViewById(ANSWER_BUTTONS.get(index));
             view.setBackgroundResource(R.drawable.button_incorrect);
         }
         Button correctView = findViewById(ANSWER_BUTTONS.get(correctIndex));
         correctView.setBackgroundResource(R.drawable.button_correct);
 
+        // display result label
+        findViewById(isCorrect ? R.id.label_correct : R.id.label_incorrect).setVisibility(View.VISIBLE);
+
+        // continue after some time
         new Thread(new Runnable()
         {
             @Override
             public void run()
             {
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(isCorrect ? 1200 : 2400);
                 } catch (InterruptedException e) {
                 }
 
@@ -137,5 +144,9 @@ public class TrainingActivity extends AppCompatActivity
             btn.setText(answers.get(i));
             btn.setBackgroundResource(R.drawable.button_default);
         }
+
+        // hide result labels
+        findViewById(R.id.label_correct).setVisibility(View.GONE);
+        findViewById(R.id.label_incorrect).setVisibility(View.GONE);
     }
 }
