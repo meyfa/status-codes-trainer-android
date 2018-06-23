@@ -35,6 +35,7 @@ public class TrainingActivity extends AppCompatActivity
 
     private TrainingLogic logic;
     private TrainingQuestion currentQuestion;
+    private boolean answerChosen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -87,6 +88,11 @@ public class TrainingActivity extends AppCompatActivity
 
     private void chooseAnswer(int index)
     {
+        if (answerChosen) {
+            return;
+        }
+        answerChosen = true;
+
         final int correctIndex = currentQuestion.getCorrectAnswerIndex();
         final boolean isCorrect = index == correctIndex;
 
@@ -132,6 +138,7 @@ public class TrainingActivity extends AppCompatActivity
         }
 
         currentQuestion = logic.nextQuestion();
+        answerChosen = false;
 
         // update question
         TextView codeView = findViewById(R.id.label_code);
