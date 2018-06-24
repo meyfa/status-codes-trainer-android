@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:paddingLeft="32dp"
+    android:paddingRight="32dp">
 
     <TextView
         android:id="@+id/label_code"
@@ -11,8 +14,14 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:padding="4dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:textColor="@color/colorStatusCode"
         android:textSize="20sp"
+        android:typeface="monospace"
+        app:fontFamily="monospace"
         tools:text="404" />
 
     <TextView
@@ -27,9 +36,10 @@
         android:layout_toRightOf="@+id/label_code"
         android:gravity="center_vertical|start"
         android:paddingEnd="8dp"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
         android:paddingStart="8dp"
+        android:textColor="@color/colorStatusMessage"
         android:textSize="16sp"
+        android:typeface="monospace"
+        app:fontFamily="monospace"
         tools:text="Not Found" />
 </RelativeLayout>

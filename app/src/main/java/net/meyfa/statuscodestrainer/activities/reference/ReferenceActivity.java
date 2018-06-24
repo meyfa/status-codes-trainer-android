@@ -1,11 +1,14 @@
 package net.meyfa.statuscodestrainer.activities.reference;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import net.meyfa.statuscodestrainer.R;
@@ -21,9 +24,10 @@ import java.util.List;
  */
 public class ReferenceActivity extends AppCompatActivity
 {
+    private HTTPStatuses codes;
+
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
-    private RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -31,28 +35,23 @@ public class ReferenceActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reference);
 
-        // configure action bar
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
+        codes = HTTPStatuses.load(getResources(), R.xml.statuses);
 
         // setup recycler
         recyclerView = findViewById(R.id.reference_recycler);
         recyclerView.setHasFixedSize(true);
 
-        // use linear layout
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-
-        // set adapter
-        HTTPStatuses codes = HTTPStatuses.load(getResources(), R.xml.statuses);
-        List<HTTPStatus> allStatuses = new ArrayList<>();
-        for (HTTPStatusClass statusClass : codes.getClasses()) {
-            allStatuses.addAll(statusClass.getStatuses());
+        // configure toolbar
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
         }
-        adapter = new ReferenceAdapter(allStatuses);
-        recyclerView.setAdapter(adapter);
+
+        // configure tab bar
+        TabLayout tabs = findViewById(R.id.reference_tabs);
+        tabs.addOnTabSelectedListener(new TabSelectionListener());
+        populateTabBar(tabs, codes.getClasses());
     }
 
     @Override
@@ -64,6 +63,53 @@ public class ReferenceActivity extends AppCompatActivity
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void populateTabBar(TabLayout tabs, List<HTTPStatusClass> classes)
+    {
+        tabs.addTab(tabs.newTab().setText("All").setTag(null));
+        for (HTTPStatusClass statusClass : classes) {
+            tabs.addTab(tabs.newTab().setText(statusClass.getDigit() + "XX").setTag(statusClass));
+        }
+    }
+
+    private void showStatuses(@Nullable HTTPStatusClass statusClass)
+    {
+        List<HTTPStatus> display = (statusClass == null) ? getAllStatuses() : statusClass.getStatuses();
+
+        adapter = new ReferenceAdapter(display);
+        recyclerView.setAdapter(adapter);
+    }
+
+    private List<HTTPStatus> getAllStatuses()
+    {
+        List<HTTPStatus> allStatuses = new ArrayList<>();
+        for (HTTPStatusClass statusClass : codes.getClasses()) {
+            allStatuses.addAll(statusClass.getStatuses());
+        }
+        return allStatuses;
+    }
+
+    /**
+     * Manages the tab selection.
+     */
+    private class TabSelectionListener implements TabLayout.BaseOnTabSelectedListener
+    {
+        @Override
+        public void onTabSelected(TabLayout.Tab tab)
+        {
+            showStatuses((HTTPStatusClass) tab.getTag());
+        }
+
+        @Override
+        public void onTabUnselected(TabLayout.Tab tab)
+        {
+        }
+
+        @Override
+        public void onTabReselected(TabLayout.Tab tab)
+        {
         }
     }
 }

@@ -5,4 +5,6 @@
     <string name="main_btn_test">Start Test</string>
     <string name="reference_title">HTTP Status Reference</string>
     <string name="reference_label_question">What is the meaning of this status code?</string>
+    <string name="training_correct">Correct!</string>
+    <string name="training_incorrect">Incorrect!</string>
 </resources>

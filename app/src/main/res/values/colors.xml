@@ -5,6 +5,9 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="colorStatusCode">#FA2672</color>
+    <color name="colorStatusMessage">#E5DB74</color>
+
     <color name="colorCorrect">#22BB00</color>
     <color name="colorIncorrect">#DD3355</color>
 
