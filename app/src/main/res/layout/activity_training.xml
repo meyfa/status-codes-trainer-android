@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:padding="16dp"
-                android:text="@string/reference_label_question"
+                android:text="@string/training_question"
                 android:textSize="20sp"
                 android:typeface="monospace" />
 

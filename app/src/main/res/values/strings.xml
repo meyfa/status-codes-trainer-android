@@ -4,7 +4,10 @@
     <string name="main_btn_training">Start Training</string>
     <string name="main_btn_test">Start Test</string>
     <string name="reference_title">HTTP Status Reference</string>
-    <string name="reference_label_question">What is the meaning of this status code?</string>
+    <string name="training_question">What is the meaning of this status code?</string>
     <string name="training_correct">Correct!</string>
     <string name="training_incorrect">Incorrect!</string>
+    <string name="test_question_number">Question %d/%d</string>
+    <string name="test_question">What is the meaning of this status code?</string>
+    <string name="test_accept">OK</string>
 </resources>
