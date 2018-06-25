@@ -5,6 +5,9 @@ import android.support.annotation.Nullable;
 
 import net.meyfa.statuscodestrainer.data.HTTPStatus;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -21,9 +24,9 @@ public class TrainingLogic
     /**
      * @param statuses The statuses to ask about. These are also the exclusive source for answer options.
      */
-    public TrainingLogic(@NonNull List<HTTPStatus> statuses)
+    public TrainingLogic(@NonNull Collection<HTTPStatus> statuses)
     {
-        this.statuses = statuses;
+        this.statuses = Collections.unmodifiableList(new ArrayList<>(statuses));
         this.generator = new TrainingGenerator(statuses);
     }
 

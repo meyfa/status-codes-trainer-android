@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity
      *
      * @param view The clicked view.
      */
-    public void clickReference(View view)
+    public void clickReference(@SuppressWarnings("unused") View view)
     {
         Intent launch = new Intent(this, ReferenceActivity.class);
         startActivity(launch);
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity
      *
      * @param view The clicked view.
      */
-    public void clickTraining(View view)
+    public void clickTraining(@SuppressWarnings("unused") View view)
     {
         Intent launch = new Intent(this, TrainingActivity.class);
         startActivity(launch);
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity
      *
      * @param view The clicked view.
      */
-    public void clickTest(View view)
+    public void clickTest(@SuppressWarnings("unused") View view)
     {
         Intent launch = new Intent(this, TestActivity.class);
         startActivity(launch);

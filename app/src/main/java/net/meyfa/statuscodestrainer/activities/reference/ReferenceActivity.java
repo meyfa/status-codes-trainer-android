@@ -24,9 +24,7 @@ import java.util.List;
 public class ReferenceActivity extends AppCompatActivity
 {
     private HTTPStatuses codes;
-
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -77,7 +75,7 @@ public class ReferenceActivity extends AppCompatActivity
     {
         List<HTTPStatus> display = (statusClass == null) ? getAllStatuses() : statusClass.getStatuses();
 
-        adapter = new ReferenceAdapter(display);
+        ReferenceAdapter adapter = new ReferenceAdapter(display);
         recyclerView.setAdapter(adapter);
     }
 

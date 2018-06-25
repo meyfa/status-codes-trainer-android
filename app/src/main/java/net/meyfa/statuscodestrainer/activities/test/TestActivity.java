@@ -87,7 +87,7 @@ public class TestActivity extends AppCompatActivity
      *
      * @param view The clicked view.
      */
-    public void clickAccept(View view)
+    public void clickAccept(@SuppressWarnings("unused") View view)
     {
         finishCurrentQuestion();
     }

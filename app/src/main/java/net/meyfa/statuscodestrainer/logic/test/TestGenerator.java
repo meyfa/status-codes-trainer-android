@@ -6,6 +6,7 @@ import net.meyfa.statuscodestrainer.data.HTTPStatus;
 import net.meyfa.statuscodestrainer.logic.Generator;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -16,8 +17,6 @@ import java.util.Random;
  */
 public class TestGenerator implements Generator<TestQuestion>
 {
-    private final Random rand;
-
     private final List<HTTPStatus> statuses;
     private final int questionCount;
     private int nextIndex;
@@ -27,13 +26,13 @@ public class TestGenerator implements Generator<TestQuestion>
      * @param questionCount The number of questions to ask.
      * @throws IllegalArgumentException If fewer statuses are given than the number of questions to ask.
      */
-    public TestGenerator(@NonNull List<HTTPStatus> statuses, int questionCount)
+    public TestGenerator(@NonNull Collection<HTTPStatus> statuses, int questionCount)
     {
         if (questionCount > statuses.size()) {
             throw new IllegalArgumentException("too few statuses for question generation");
         }
 
-        this.rand = new Random(System.nanoTime());
+        Random rand = new Random(System.nanoTime());
 
         // ask questions in random order
         this.statuses = new ArrayList<>(statuses);

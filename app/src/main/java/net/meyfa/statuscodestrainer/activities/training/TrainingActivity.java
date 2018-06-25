@@ -116,7 +116,7 @@ public class TrainingActivity extends AppCompatActivity
             {
                 try {
                     Thread.sleep(response.isCorrect() ? 1200 : 2400);
-                } catch (InterruptedException e) {
+                } catch (InterruptedException ignored) {
                 }
 
                 runOnUiThread(new Runnable()

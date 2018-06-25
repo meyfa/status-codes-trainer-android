@@ -14,7 +14,7 @@ public class TestQuestion
      * @param code          The code to ask about.
      * @param correctAnswer The correct answer.
      */
-    public TestQuestion(int code, String correctAnswer)
+    public TestQuestion(int code, @NonNull String correctAnswer)
     {
         this.code = code;
         this.correctAnswer = correctAnswer;

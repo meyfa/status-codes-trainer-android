@@ -7,6 +7,7 @@ import net.meyfa.statuscodestrainer.data.HTTPStatus;
 import net.meyfa.statuscodestrainer.logic.Generator;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -29,7 +30,7 @@ public class TrainingGenerator implements Generator<TrainingQuestion>
      * @param statuses The statuses to ask about. These are also the exclusive source for answer options.
      * @throws IllegalArgumentException If fewer statuses are given than needed to generate at least one answer set.
      */
-    public TrainingGenerator(@NonNull List<HTTPStatus> statuses)
+    public TrainingGenerator(@NonNull Collection<HTTPStatus> statuses)
     {
         this.rand = new Random(System.nanoTime());
 

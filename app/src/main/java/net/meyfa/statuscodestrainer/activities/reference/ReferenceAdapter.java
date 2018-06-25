@@ -20,7 +20,7 @@ import java.util.Locale;
  */
 public class ReferenceAdapter extends RecyclerView.Adapter<ReferenceAdapter.ViewHolder>
 {
-    private List<HTTPStatus> data;
+    private final List<HTTPStatus> data;
 
     /**
      * @param statuses The statuses to display.
@@ -57,8 +57,8 @@ public class ReferenceAdapter extends RecyclerView.Adapter<ReferenceAdapter.View
      */
     public static class ViewHolder extends RecyclerView.ViewHolder
     {
-        private TextView codeView;
-        private TextView messageView;
+        private final TextView codeView;
+        private final TextView messageView;
 
         /**
          * @param itemView The reference_item view.

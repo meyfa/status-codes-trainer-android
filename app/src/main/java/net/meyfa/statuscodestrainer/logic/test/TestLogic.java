@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import net.meyfa.statuscodestrainer.data.HTTPStatus;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -26,7 +27,7 @@ public class TestLogic
      * @param questionCount The number of questions to ask.
      * @throws IllegalArgumentException If fewer statuses are given than the number of questions to ask.
      */
-    public TestLogic(@NonNull List<HTTPStatus> statuses, int questionCount)
+    public TestLogic(@NonNull Collection<HTTPStatus> statuses, int questionCount)
     {
         this.generator = new TestGenerator(statuses, questionCount);
         this.questionCount = questionCount;
