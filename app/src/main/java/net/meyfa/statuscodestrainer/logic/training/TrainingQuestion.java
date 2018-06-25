@@ -1,4 +1,4 @@
-package net.meyfa.statuscodestrainer.logic;
+package net.meyfa.statuscodestrainer.logic.training;
 
 import android.support.annotation.NonNull;
 
@@ -38,6 +38,7 @@ public class TrainingQuestion
     /**
      * @return The list of possible answers.
      */
+    @NonNull
     public List<String> getAnswers()
     {
         return answers;

@@ -1,6 +1,7 @@
 package net.meyfa.statuscodestrainer.activities.training;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -14,8 +15,9 @@ import net.meyfa.statuscodestrainer.R;
 import net.meyfa.statuscodestrainer.data.HTTPStatus;
 import net.meyfa.statuscodestrainer.data.HTTPStatusClass;
 import net.meyfa.statuscodestrainer.data.HTTPStatuses;
-import net.meyfa.statuscodestrainer.logic.TrainingLogic;
-import net.meyfa.statuscodestrainer.logic.TrainingQuestion;
+import net.meyfa.statuscodestrainer.logic.training.TrainingLogic;
+import net.meyfa.statuscodestrainer.logic.training.TrainingQuestion;
+import net.meyfa.statuscodestrainer.logic.training.TrainingResponse;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,8 +37,6 @@ public class TrainingActivity extends AppCompatActivity
             .unmodifiableList(Arrays.asList(R.id.btn_answer_0, R.id.btn_answer_1, R.id.btn_answer_2));
 
     private TrainingLogic logic;
-    private TrainingQuestion currentQuestion;
-    private boolean answerChosen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -88,26 +88,25 @@ public class TrainingActivity extends AppCompatActivity
         }
     }
 
+    /**
+     * Handle the given answer choice.
+     *
+     * @param index The index of the answer that was chosen.
+     */
     private void chooseAnswer(int index)
     {
-        if (answerChosen) {
+        final TrainingResponse response = logic.chooseAnswer(index);
+        if (response == null) {
             return;
         }
-        answerChosen = true;
-
-        final int correctIndex = currentQuestion.getCorrectAnswerIndex();
-        final boolean isCorrect = index == correctIndex;
 
         // update button styles
-        if (!isCorrect) {
-            Button view = findViewById(ANSWER_BUTTONS.get(index));
-            view.setBackgroundResource(R.drawable.button_incorrect);
-        }
-        Button correctView = findViewById(ANSWER_BUTTONS.get(correctIndex));
-        correctView.setBackgroundResource(R.drawable.button_correct);
+        setAnswerButtonState(response.getChosenAnswerIndex(), AnswerButtonState.INCORRECT);
+        setAnswerButtonState(response.getCorrectAnswerIndex(), AnswerButtonState.CORRECT);
 
         // display result label
-        findViewById(isCorrect ? R.id.label_correct : R.id.label_incorrect).setVisibility(View.VISIBLE);
+        int labelId = response.isCorrect() ? R.id.label_correct : R.id.label_incorrect;
+        findViewById(labelId).setVisibility(View.VISIBLE);
 
         // continue after some time
         new Thread(new Runnable()
@@ -116,7 +115,7 @@ public class TrainingActivity extends AppCompatActivity
             public void run()
             {
                 try {
-                    Thread.sleep(isCorrect ? 1200 : 2400);
+                    Thread.sleep(response.isCorrect() ? 1200 : 2400);
                 } catch (InterruptedException e) {
                 }
 
@@ -132,30 +131,60 @@ public class TrainingActivity extends AppCompatActivity
         }).start();
     }
 
+    /**
+     * Set the display state of an answer button.
+     *
+     * @param index The button index (0, 1, 2).
+     * @param state The state (default, correct, incorrect).
+     */
+    private void setAnswerButtonState(int index, @NonNull AnswerButtonState state)
+    {
+        Button view = findViewById(ANSWER_BUTTONS.get(index));
+
+        switch (state) {
+            case DEFAULT:
+                view.setBackgroundResource(R.drawable.button_default);
+                break;
+            case CORRECT:
+                view.setBackgroundResource(R.drawable.button_correct);
+                break;
+            case INCORRECT:
+                view.setBackgroundResource(R.drawable.button_incorrect);
+                break;
+        }
+    }
+
+    /**
+     * Fetch another question and display it.
+     */
     private void showNextQuestion()
     {
-        if (!logic.hasNextQuestion()) {
-            // TODO handle case of no more questions
-            return;
-        }
-
-        currentQuestion = logic.nextQuestion();
-        answerChosen = false;
+        TrainingQuestion question = logic.nextQuestion();
 
         // update question
         TextView codeView = findViewById(R.id.label_code);
-        codeView.setText(String.format(Locale.US, "%d", currentQuestion.getCode()));
+        codeView.setText(String.format(Locale.US, "%d", question.getCode()));
 
         // update answers
-        List<String> answers = currentQuestion.getAnswers();
+        List<String> answers = question.getAnswers();
         for (int i = 0; i < answers.size(); ++i) {
             Button btn = findViewById(ANSWER_BUTTONS.get(i));
             btn.setText(answers.get(i));
-            btn.setBackgroundResource(R.drawable.button_default);
+            setAnswerButtonState(i, AnswerButtonState.DEFAULT);
         }
 
         // hide result labels
         findViewById(R.id.label_correct).setVisibility(View.GONE);
         findViewById(R.id.label_incorrect).setVisibility(View.GONE);
+    }
+
+    /**
+     * State of an answer button.
+     */
+    private enum AnswerButtonState
+    {
+        DEFAULT,
+        CORRECT,
+        INCORRECT
     }
 }
