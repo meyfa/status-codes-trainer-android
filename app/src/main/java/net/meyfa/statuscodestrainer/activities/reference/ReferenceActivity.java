@@ -6,7 +6,6 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -94,7 +93,7 @@ public class ReferenceActivity extends AppCompatActivity
     /**
      * Manages the tab selection.
      */
-    private class TabSelectionListener implements TabLayout.BaseOnTabSelectedListener
+    private class TabSelectionListener implements TabLayout.OnTabSelectedListener
     {
         @Override
         public void onTabSelected(TabLayout.Tab tab)
