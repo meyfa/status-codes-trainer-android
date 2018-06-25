@@ -1,5 +1,6 @@
 package net.meyfa.statuscodestrainer.logic.test;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -8,7 +9,7 @@ import java.util.List;
 /**
  * The results of a set of test questions.
  */
-public class TestResults
+public class TestResults implements Serializable
 {
     private final List<TestResultsItem> items;
 

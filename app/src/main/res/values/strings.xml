@@ -10,4 +10,6 @@
     <string name="test_question_number">Question %d/%d</string>
     <string name="test_question">What is the meaning of this status code?</string>
     <string name="test_accept">OK</string>
+    <string name="test_results_total">%d / %d</string>
+    <string name="test_results_incorrect">Your answer: %s</string>
 </resources>

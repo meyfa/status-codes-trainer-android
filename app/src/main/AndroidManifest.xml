@@ -38,6 +38,12 @@
                 android:value=".activities.main.MainActivity" />
         </activity>
 
+        <activity android:name=".activities.testresults.TestResultsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.main.MainActivity" />
+        </activity>
+
     </application>
 
 </manifest>

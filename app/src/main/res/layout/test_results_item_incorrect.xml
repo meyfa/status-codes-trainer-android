@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#22FF2244"
+    android:paddingLeft="32dp"
+    android:paddingRight="32dp">
+
+    <TextView
+        android:id="@+id/label_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/container_messages"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignTop="@+id/container_messages"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center_vertical"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:textColor="@color/colorStatusCode"
+        android:textSize="20sp"
+        android:typeface="monospace"
+        app:fontFamily="monospace"
+        tools:text="404" />
+
+    <LinearLayout
+        android:id="@+id/container_messages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_toEndOf="@+id/label_code"
+        android:layout_toRightOf="@+id/label_code"
+        android:orientation="vertical"
+        android:paddingBottom="8dp"
+        android:paddingEnd="8dp"
+        android:paddingStart="8dp"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:id="@+id/label_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:textColor="@color/colorStatusMessage"
+            android:textSize="16sp"
+            android:typeface="monospace"
+            app:fontFamily="monospace"
+            tools:text="Not Found" />
+
+        <TextView
+            android:id="@+id/label_message_incorrect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="start"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp"
+            android:typeface="monospace"
+            app:fontFamily="monospace"
+            tools:text="Your answer: Non-authoritative Information" />
+
+    </LinearLayout>
+
+</RelativeLayout>

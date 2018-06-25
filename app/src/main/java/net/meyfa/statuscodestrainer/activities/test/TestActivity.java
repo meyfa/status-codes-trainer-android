@@ -1,5 +1,6 @@
 package net.meyfa.statuscodestrainer.activities.test;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
@@ -13,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import net.meyfa.statuscodestrainer.R;
+import net.meyfa.statuscodestrainer.activities.testresults.TestResultsActivity;
 import net.meyfa.statuscodestrainer.data.HTTPStatus;
 import net.meyfa.statuscodestrainer.data.HTTPStatusClass;
 import net.meyfa.statuscodestrainer.data.HTTPStatuses;
@@ -135,6 +137,10 @@ public class TestActivity extends AppCompatActivity
 
     private void showResults()
     {
-        // TODO show the results
+        Intent launch = new Intent(this, TestResultsActivity.class);
+        launch.putExtra(TestResultsActivity.INTENT_EXTRA_RESULTS, logic.evaluate());
+        startActivity(launch);
+
+        finish();
     }
 }

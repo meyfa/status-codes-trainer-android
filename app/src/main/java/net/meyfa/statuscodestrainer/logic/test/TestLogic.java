@@ -87,10 +87,11 @@ public class TestLogic
         }
         answerGiven = true;
 
+        int code = currentQuestion.getCode();
         String correctAnswer = currentQuestion.getCorrectAnswer();
         boolean acceptable = isAcceptable(correctAnswer, answer);
 
-        results.add(new TestResultsItem(correctAnswer, answer, acceptable));
+        results.add(new TestResultsItem(code, correctAnswer, answer, acceptable));
     }
 
     /**
