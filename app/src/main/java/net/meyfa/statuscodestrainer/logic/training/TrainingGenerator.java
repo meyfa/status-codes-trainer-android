@@ -58,6 +58,7 @@ public class TrainingGenerator implements Generator<TrainingQuestion>
     }
 
     @Override
+    @NonNull
     public TrainingQuestion next() throws NoSuchElementException
     {
         if (!hasNext()) {

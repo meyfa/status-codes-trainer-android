@@ -55,9 +55,11 @@ public class TestActivity extends AppCompatActivity
 
         // setup input IME action
         EditText input = findViewById(R.id.input_answer);
-        input.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        input.setOnEditorActionListener(new TextView.OnEditorActionListener()
+        {
             @Override
-            public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
+            public boolean onEditorAction(TextView view, int actionId, KeyEvent event)
+            {
                 if (actionId == EditorInfo.IME_ACTION_DONE) {
                     finishCurrentQuestion();
                     return true;

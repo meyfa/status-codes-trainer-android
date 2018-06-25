@@ -16,8 +16,8 @@ public class HTTPStatusClass
     private final List<HTTPStatus> statuses;
 
     /**
-     * @param digit The leading digit of all status codes in this class (e.g. 4).
-     * @param name The name of this class (e.g. "Client Error").
+     * @param digit    The leading digit of all status codes in this class (e.g. 4).
+     * @param name     The name of this class (e.g. "Client Error").
      * @param statuses A list of all statuses in this class (e.g. 400, 401, 402, ...).
      */
     public HTTPStatusClass(int digit, @NonNull String name, @NonNull List<HTTPStatus> statuses)

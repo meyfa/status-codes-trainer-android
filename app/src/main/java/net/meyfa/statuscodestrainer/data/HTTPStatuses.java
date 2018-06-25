@@ -85,7 +85,7 @@ public class HTTPStatuses
          *
          * @return The load result.
          * @throws XmlPullParserException If an XML error occurs.
-         * @throws IOException If an I/O error occurs.
+         * @throws IOException            If an I/O error occurs.
          */
         @NonNull
         public HTTPStatuses load() throws XmlPullParserException, IOException

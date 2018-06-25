@@ -51,6 +51,7 @@ public class TestGenerator implements Generator<TestQuestion>
     }
 
     @Override
+    @NonNull
     public TestQuestion next() throws NoSuchElementException
     {
         if (!hasNext()) {

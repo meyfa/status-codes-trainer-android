@@ -1,5 +1,7 @@
 package net.meyfa.statuscodestrainer.logic.test;
 
+import android.support.annotation.NonNull;
+
 /**
  * Represents a single item in the test results, i.e. a single question response.
  */
@@ -32,6 +34,7 @@ public class TestResultsItem
     /**
      * @return The correct answer to the respective question.
      */
+    @NonNull
     public String getCorrectAnswer()
     {
         return correctAnswer;
@@ -40,6 +43,7 @@ public class TestResultsItem
     /**
      * @return The user-provided answer.
      */
+    @NonNull
     public String getGivenAnswer()
     {
         return givenAnswer;

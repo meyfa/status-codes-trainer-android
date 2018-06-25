@@ -98,6 +98,7 @@ public class TestLogic
      *
      * @return The test results.
      */
+    @NonNull
     public TestResults evaluate()
     {
         return new TestResults(results);
@@ -124,6 +125,7 @@ public class TestLogic
      * @param answerString The string to convert.
      * @return The conversion result.
      */
+    @NonNull
     private String makeCanonical(@NonNull String answerString)
     {
         String canonical = answerString;
