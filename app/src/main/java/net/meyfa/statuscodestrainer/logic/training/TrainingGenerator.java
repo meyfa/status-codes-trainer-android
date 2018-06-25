@@ -27,6 +27,7 @@ public class TrainingGenerator implements Generator<TrainingQuestion>
 
     /**
      * @param statuses The statuses to ask about. These are also the exclusive source for answer options.
+     * @throws IllegalArgumentException If fewer statuses are given than needed to generate at least one answer set.
      */
     public TrainingGenerator(@NonNull List<HTTPStatus> statuses)
     {
