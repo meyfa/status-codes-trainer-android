@@ -91,7 +91,9 @@
                     android:layout_gravity="center_vertical"
                     android:background="@drawable/button_default"
                     android:onClick="clickAccept"
-                    android:text="@string/test_accept" />
+                    android:text="@string/test_accept"
+                    android:textSize="16sp"
+                    android:typeface="monospace" />
             </LinearLayout>
 
         </LinearLayout>
