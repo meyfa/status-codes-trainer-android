@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">HTTP Status Codes Trainer</string>
+    <string name="main_title">@string/app_name</string>
     <string name="main_btn_reference">Status Code Reference</string>
     <string name="main_btn_training">Start Training</string>
     <string name="main_btn_test">Start Test</string>
@@ -7,12 +8,15 @@
     <string name="main_progress_empty">No tests taken yet</string>
     <string name="main_progress_total">%d / %d</string>
     <string name="reference_title">HTTP Status Reference</string>
+    <string name="training_title">HTTP Status Training</string>
     <string name="training_question">What is the meaning of this status code?</string>
     <string name="training_correct">Correct!</string>
     <string name="training_incorrect">Incorrect!</string>
+    <string name="test_title">HTTP Status Test</string>
     <string name="test_question_number">Question %d/%d</string>
     <string name="test_question">What is the meaning of this status code?</string>
     <string name="test_accept">OK</string>
+    <string name="test_results_title">HTTP Status Test Results</string>
     <string name="test_results_total">%d / %d</string>
     <string name="test_results_incorrect">Your answer: %s</string>
 </resources>
