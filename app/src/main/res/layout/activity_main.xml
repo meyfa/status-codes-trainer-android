@@ -67,6 +67,23 @@
                 android:textSize="16sp"
                 android:typeface="monospace" />
 
+            <TextView
+                android:id="@+id/label_progress_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/main_progress_title"
+                android:textSize="20sp"
+                android:typeface="monospace"
+                app:fontFamily="monospace" />
+
+            <LinearLayout
+                android:id="@+id/progress_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" />
+
         </LinearLayout>
 
     </ScrollView>
