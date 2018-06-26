@@ -39,20 +39,11 @@ public class TestResultsActivity extends AppCompatActivity
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        TestResults results = (TestResults) getIntent().getSerializableExtra(INTENT_EXTRA_RESULTS);
-        List<TestResultsItem> items = results.getItems();
-
         // show total
-        int count = items.size(), correctCount = 0;
-        for (TestResultsItem item : items) {
-            if (item.isAccepted()) {
-                ++correctCount;
-            }
-        }
-        showResultTotal(count, correctCount);
-
+        TestResults results = (TestResults) getIntent().getSerializableExtra(INTENT_EXTRA_RESULTS);
+        showResultTotal(results.getQuestionCount(), results.getCorrectAnswerCount());
         // show details
-        showResultDetails(items);
+        showResultDetails(results.getItems());
     }
 
     @Override

@@ -28,4 +28,26 @@ public class TestResults implements Serializable
     {
         return items;
     }
+
+    /**
+     * @return The number of questions that were asked.
+     */
+    public int getQuestionCount()
+    {
+        return items.size();
+    }
+
+    /**
+     * @return The number of questions that were answered correctly.
+     */
+    public int getCorrectAnswerCount()
+    {
+        int total = 0;
+        for (TestResultsItem item : items) {
+            if (item.isAccepted()) {
+                ++total;
+            }
+        }
+        return total;
+    }
 }

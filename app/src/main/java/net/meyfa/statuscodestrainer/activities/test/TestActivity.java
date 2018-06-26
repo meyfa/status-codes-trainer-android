@@ -2,6 +2,8 @@ package net.meyfa.statuscodestrainer.activities.test;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -18,8 +20,15 @@ import net.meyfa.statuscodestrainer.activities.testresults.TestResultsActivity;
 import net.meyfa.statuscodestrainer.data.HTTPStatus;
 import net.meyfa.statuscodestrainer.data.HTTPStatusClass;
 import net.meyfa.statuscodestrainer.data.HTTPStatuses;
+import net.meyfa.statuscodestrainer.logic.progress.ProgressTracker;
 import net.meyfa.statuscodestrainer.logic.test.TestLogic;
 import net.meyfa.statuscodestrainer.logic.test.TestQuestion;
+import net.meyfa.statuscodestrainer.logic.test.TestResults;
+import net.meyfa.statuscodestrainer.util.async.ActivityActionRunner;
+import net.meyfa.statuscodestrainer.util.async.AsyncAction;
+import net.meyfa.statuscodestrainer.util.async.Callback;
+
+import org.joda.time.DateTime;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -135,12 +144,52 @@ public class TestActivity extends AppCompatActivity
         stateDisplay.setText(String.format(template, questionNumber, questionCount));
     }
 
+    /**
+     * End this questionnaire. The answers are evaluated, stored, and then shown to the user.
+     */
     private void showResults()
     {
-        Intent launch = new Intent(this, TestResultsActivity.class);
-        launch.putExtra(TestResultsActivity.INTENT_EXTRA_RESULTS, logic.evaluate());
-        startActivity(launch);
+        // evaluate the results
+        final TestResults results = logic.evaluate();
 
-        finish();
+        // persist the results
+        persistResults(results, new Callback<Void>()
+        {
+            @Override
+            public void done(Void result)
+            {
+                // show the results activity
+                Intent launch = new Intent(TestActivity.this, TestResultsActivity.class);
+                launch.putExtra(TestResultsActivity.INTENT_EXTRA_RESULTS, results);
+                startActivity(launch);
+
+                finish();
+            }
+        });
+    }
+
+    /**
+     * Store the results. After this is done, the callback is invoked.
+     *
+     * @param results    The results to persist.
+     * @param thenAction The callback to invoke after completion.
+     */
+    private void persistResults(@NonNull final TestResults results, @Nullable Callback<Void> thenAction)
+    {
+        new ActivityActionRunner<>(this, new AsyncAction<Void>()
+        {
+            @Override
+            protected Void execute()
+            {
+                ProgressTracker tracker = ProgressTracker.getInstance(getApplicationContext());
+
+                final DateTime dateTime = DateTime.now();
+                final int questionCount = results.getQuestionCount();
+                final int correctCount = results.getCorrectAnswerCount();
+                tracker.createProgressItem(dateTime, questionCount, correctCount);
+
+                return null;
+            }
+        }).run(thenAction);
     }
 }
