@@ -7,7 +7,7 @@ import android.arch.persistence.room.TypeConverters;
 /**
  * A Room database for storing progress data.
  */
-@Database(entities = { ProgressItem.class }, version = 1)
+@Database(entities = { ProgressItem.class }, version = 1, exportSchema = false)
 @TypeConverters({DateTimeConverter.class})
 public abstract class ProgressDatabase extends RoomDatabase
 {
