@@ -1,0 +1,5 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference
+        android:key="@string/preference_clear_progress"
+        android:title="@string/preference_clear_progress_label" />
+</PreferenceScreen>

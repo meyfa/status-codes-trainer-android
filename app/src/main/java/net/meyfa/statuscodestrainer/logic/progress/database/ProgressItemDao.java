@@ -17,8 +17,8 @@ public interface ProgressItemDao
     List<ProgressItem> getAll();
 
     @Insert
-    void insertAll(ProgressItem... items);
+    void insert(ProgressItem item);
 
-    @Delete
-    void deleteAll(ProgressItem... items);
+    @Query("DELETE FROM progressitem")
+    void clear();
 }

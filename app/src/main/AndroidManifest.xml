@@ -9,7 +9,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".activities.main.MainActivity"
+        <activity
+            android:name=".activities.main.MainActivity"
             android:label="@string/main_title">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,22 +27,34 @@
                 android:value=".activities.main.MainActivity" />
         </activity>
 
-        <activity android:name=".activities.training.TrainingActivity"
+        <activity
+            android:name=".activities.training.TrainingActivity"
             android:label="@string/training_title">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.main.MainActivity" />
         </activity>
 
-        <activity android:name=".activities.test.TestActivity"
+        <activity
+            android:name=".activities.test.TestActivity"
             android:label="@string/test_title">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.main.MainActivity" />
         </activity>
 
-        <activity android:name=".activities.testresults.TestResultsActivity"
+        <activity
+            android:name=".activities.testresults.TestResultsActivity"
             android:label="@string/test_results_title">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.main.MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".activities.settings.SettingsActivity"
+            android:label="@string/settings_title"
+            android:theme="@style/AppTheme.ActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activities.main.MainActivity" />

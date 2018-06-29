@@ -19,4 +19,11 @@
     <string name="test_results_title">HTTP Status Test Results</string>
     <string name="test_results_total">%d / %d</string>
     <string name="test_results_incorrect">Your answer: %s</string>
+    <string name="main_menu_item_settings">Settings</string>
+    <string name="settings_title">Settings</string>
+    <string name="preference_clear_progress">clear_progress</string>
+    <string name="preference_clear_progress_label">Clear progress</string>
+    <string name="clear_progress_title">Clear progress?</string>
+    <string name="clear_progress_message">This will empty the progress database. Are you sure?</string>
+    <string name="clear_progress_toast">Progress cleared</string>
 </resources>

@@ -20,12 +20,10 @@ public class ProgressTracker
 {
     private static volatile ProgressTracker instance;
 
-    private final Context appContext;
     private final ProgressDatabase db;
 
     private ProgressTracker(@NonNull Context appContext)
     {
-        this.appContext = appContext;
         this.db = Room.databaseBuilder(appContext, ProgressDatabase.class, "progressdb").build();
     }
 
@@ -73,8 +71,16 @@ public class ProgressTracker
         item.setQuestionCount(questionCount);
         item.setCorrectCount(correctCount);
 
-        db.progressItemDao().insertAll(item);
+        db.progressItemDao().insert(item);
 
         return item;
+    }
+
+    /**
+     * Deletes all progress items from the database.
+     */
+    public void clearItems()
+    {
+        db.progressItemDao().clear();
     }
 }
